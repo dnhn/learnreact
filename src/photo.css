@@ -1,5 +1,7 @@
 .photo {
   position: relative;
+  opacity: 0;
+  visibility: hidden;
   width: calc(100vw / 5);
   height: calc(100vw / 5);
   background-size: cover;
@@ -7,6 +9,14 @@
   background-repeat: no-repeat;
   display: flex;
   text-decoration: none;
+  transition-property: opacity, visibility;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+}
+
+.photo.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .photo .desc {
