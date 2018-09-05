@@ -26,7 +26,7 @@ class Home extends React.Component {
 
     if (this.state.photos) {
       photos = this.state.photos.map((p, i) => {
-        return <Photo data={p} key={i} />
+        return <Photo data={p} key={p.id} />
       })
     }
 
