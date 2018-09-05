@@ -8,6 +8,7 @@ export default class PhotoPopup extends React.Component {
     this.state = {
       show: false
     };
+    this.focusClose = this.focusClose.bind(this);
   }
 
   componentDidMount() {
@@ -15,7 +16,12 @@ export default class PhotoPopup extends React.Component {
       this.setState({
         show: true
       });
+      this.focusClose();
     }, 0);
+  }
+
+  focusClose() {
+    this.closeBtn.focus();
   }
 
   closePopup() {
@@ -41,10 +47,11 @@ export default class PhotoPopup extends React.Component {
           </a>
         </p>
         <button
+          ref={ref => this.closeBtn = ref}
           type="button"
           onClick={this.closePopup.bind(this)}
           className="photo-popup__close">
-          Back
+          Close
         </button>
       </div>
     );

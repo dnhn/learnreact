@@ -14,7 +14,7 @@ export default class DateTime extends React.Component {
   }
 
   newDateTime() {
-    return new Date().toString();
+    return `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
   }
 
   tick() {
@@ -27,7 +27,7 @@ export default class DateTime extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{padding: '1% 0'}}>
         {this.state.dateTime}
       </div>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import About from './about';
 import Photo from './photo';
 import PhotoPopup from './photo-popup';
 import DateTime from './datetime';
@@ -10,11 +11,13 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      about: false,
       photos: [],
       selectedPhoto: ''
     };
     this.getPhotos = this.getPhotos.bind(this);
     this.selectPhoto = this.selectPhoto.bind(this);
+    this.closeAbout = this.closeAbout.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +33,18 @@ class Home extends React.Component {
   selectPhoto(photo = '') {
     this.setState({
       selectedPhoto: photo
+    });
+  }
+
+  openAbout() {
+    this.setState({
+      about: true
+    });
+  }
+
+  closeAbout() {
+    this.setState({
+      about: false
     });
   }
 
@@ -56,15 +71,25 @@ class Home extends React.Component {
       />;
     }
 
+    let about = '';
+
+    if (this.state.about) {
+      about = <About closeAbout={this.closeAbout} />;
+    }
+
     return (
       <main>
         <header>
+          <nav className="nav">
+            <button type="button" onClick={this.openAbout.bind(this)}>About</button>
+          </nav>
           <DateTime />
         </header>
         <section className="photos">
           {photos}
         </section>
         {popup}
+        {about}
       </main>
     )
   }
