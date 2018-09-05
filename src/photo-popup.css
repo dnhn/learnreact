@@ -1,0 +1,62 @@
+.photo-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  background-color: rgba(0, 0, 0, .75);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity .5s ease;
+}
+
+.photo-popup:not(.show) {
+  opacity: 0;
+}
+
+.photo-popup__photo {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.photo-popup__caption {
+  width: 95%;
+  text-align: center;
+}
+
+.photo-popup__author-link {
+  color: #ccc;
+}
+.photo-popup__author-link:hover,
+.photo-popup__author-link:focus,
+.photo-popup__author-link:active {
+  color: white;
+}
+
+.photo-popup__close {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  padding: 2%;
+  background-color: white;
+}
+
+@media screen and (min-width: 641px) {
+  .photo-popup__caption {
+    width: 75%;
+  }
+
+  .photo-popup__close {
+    top: 1%;
+    left: 1%;
+    padding: 1%;
+  }
+}

@@ -18,7 +18,7 @@ export default class Photo extends React.Component {
 
   openPhoto(e) {
     e.preventDefault();
-    console.log(this.props.data);
+    this.props.onSelected(this.props.data);
   }
 
   render() {
@@ -28,8 +28,8 @@ export default class Photo extends React.Component {
         target="_blank"
         className={`photo ${this.state.show ? 'show' : ''}`}
         onClick={this.openPhoto.bind(this)}
-        style={{backgroundImage:`url(${this.props.data.urls.thumb})`}}>
-        <span className="desc">{this.props.data.description}</span>
+        style={{backgroundImage: `url(${this.props.data.urls.small})`}}>
+        <span className="photo__desc">{this.props.data.description}</span>
       </a>
     )
   }
