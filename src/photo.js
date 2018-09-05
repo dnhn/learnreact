@@ -22,8 +22,6 @@ export default class Photo extends React.Component {
   }
 
   render() {
-    let className = '';
-
     return (
       <a
         href={this.props.data.links.html}

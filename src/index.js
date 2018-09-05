@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import Photo from './photo';
+import DateTime from './datetime';
 
 class Home extends React.Component {
   constructor(props) {
@@ -25,18 +26,23 @@ class Home extends React.Component {
     let photos = '';
 
     if (this.state.photos) {
-      photos = this.state.photos.map((p, i) => {
-        return <Photo
+      photos = this.state.photos.map((p, i) =>
+        <Photo
           data={p}
           key={p.id}
           order={i} />
-      })
+      );
     }
 
     return (
-      <section className="photos">
-        {photos}
-      </section>
+      <main>
+        <header>
+          <DateTime />
+        </header>
+        <section className="photos">
+          {photos}
+        </section>
+      </main>
     )
   }
 }
