@@ -16,8 +16,6 @@ class Home extends React.Component {
       selectedPhoto: ''
     };
     this.getPhotos = this.getPhotos.bind(this);
-    this.selectPhoto = this.selectPhoto.bind(this);
-    this.closeAbout = this.closeAbout.bind(this);
   }
 
   componentDidMount() {
@@ -57,7 +55,7 @@ class Home extends React.Component {
           data={p}
           key={p.id}
           order={i}
-          onSelected={this.selectPhoto}
+          onSelected={this.selectPhoto.bind(this)}
         />
       );
     }
@@ -67,14 +65,14 @@ class Home extends React.Component {
     if (this.state.selectedPhoto) {
       popup = <PhotoPopup
         data={this.state.selectedPhoto}
-        closePopup={this.selectPhoto}
+        closePopup={this.selectPhoto.bind(this)}
       />;
     }
 
     let about = '';
 
     if (this.state.about) {
-      about = <About closeAbout={this.closeAbout} />;
+      about = <About closeAbout={this.closeAbout.bind(this)} />;
     }
 
     return (

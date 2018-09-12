@@ -29,7 +29,8 @@ export default class Photo extends React.Component {
         className={`photo ${this.state.show ? 'show' : ''}`}
         onClick={this.openPhoto.bind(this)}
         style={{backgroundImage: `url(${this.props.data.urls.small})`}}>
-        <span className="photo__desc">{this.props.data.description}</span>
+        {this.props.data.description ?
+          <span className="photo__desc">{this.props.data.description}</span> : ''}
       </a>
     )
   }

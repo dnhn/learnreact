@@ -38,7 +38,9 @@ export default class PhotoPopup extends React.Component {
       <div className={`photo-popup ${this.state.show ? 'show' : ''}`}>
         <div className="photo-popup__photo" style={{backgroundImage: `url(${this.props.data.urls.regular})`}} />
         <p className="photo-popup__caption">
-          <em>“{this.props.data.description}”</em> — by&nbsp;
+          {this.props.data.description ? <em>“{this.props.data.description}”</em> : ''}
+          {this.props.data.description ? ' — ' : ''}
+          by&nbsp;
           <a
             href={this.props.data.user.links.html}
             target="_blank"
