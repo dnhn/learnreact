@@ -23,7 +23,7 @@ class Home extends React.Component {
   }
 
   getPhotos() {
-    fetch('https://api.unsplash.com/photos/curated?client_id=1e1e4d18ed4c9b69e055fc6cf470b4a38092774e8bbdf4bc0aa812bdb498080e')
+    fetch('https://api.unsplash.com/photos?client_id=1e1e4d18ed4c9b69e055fc6cf470b4a38092774e8bbdf4bc0aa812bdb498080e')
       .then(response => response.json())
       .then(data => this.setState({photos: data}));
   }
