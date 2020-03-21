@@ -1,34 +1,33 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-export default class DateTime extends Component {
+export default class DateTime extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      dateTime: this.newDateTime()
+      dateTime: this.newDateTime(),
     };
-    this.tick = this.tick.bind(this);
   }
 
   componentDidMount() {
     this.tick();
   }
 
-  newDateTime() {
-    return `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
-  }
+  newDateTime = () => `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
 
-  tick() {
+  tick = () => {
     setInterval(() => {
       this.setState({
-        dateTime: this.newDateTime()
+        dateTime: this.newDateTime(),
       });
     }, 1000);
-  }
+  };
 
   render() {
+    const { dateTime } = this.state;
+
     return (
       <div style={{padding: '1% 0'}}>
-        {this.state.dateTime}
+        {dateTime}
       </div>
     );
   }

@@ -1,36 +1,51 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import './Photo.css';
 
-export default class Photo extends Component {
+export default class Photo extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      show: false
+      show: false,
     };
   }
 
   componentDidMount() {
+    const { order } = this.props;
+
     setTimeout(() => {
-      this.setState({ show: true });
-    }, this.props.order * 150);
+      this.setState({
+        show: true,
+      });
+    }, order * 150);
   }
 
-  openPhoto(e) {
+  openPhoto = (e) => {
     e.preventDefault();
-    this.props.onSelected(this.props.data);
-  }
+
+    const { data, onSelected } = this.props;
+    onSelected(data);
+  };
 
   render() {
+    const {
+      data: {
+        links,
+        urls,
+        description,
+      },
+    } = this.props;
+    const { show } = this.state;
+
     return (
       <a
-        href={this.props.data.links.html}
+        href={links.html}
         target="_blank"
-        className={`photo ${this.state.show ? 'show' : ''}`}
-        onClick={this.openPhoto.bind(this)}
-        style={{backgroundImage: `url(${this.props.data.urls.small})`}}>
-        {this.props.data.description ?
-          <span className="photo__desc">{this.props.data.description}</span> : ''}
+        rel="noopener noreferrer"
+        className={`photo ${show ? 'show' : ''}`}
+        onClick={e => this.openPhoto(e)}
+        style={{backgroundImage: `url(${urls.small})`}}>
+        {description ? <span className="photo__desc">{description}</span> : ''}
       </a>
     )
   }

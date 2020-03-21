@@ -6,7 +6,7 @@ export default class PhotoPopup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false
+      show: false,
     };
     this.focusClose = this.focusClose.bind(this);
   }
@@ -14,7 +14,7 @@ export default class PhotoPopup extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        show: true
+        show: true,
       });
       this.focusClose();
     }, 0);
@@ -25,27 +25,39 @@ export default class PhotoPopup extends Component {
   }
 
   closePopup() {
+    const { closePopup } = this.props;
+
     this.setState({
-      show: false
+      show: false,
     });
     setTimeout(() => {
-      this.props.closePopup();
+      closePopup();
     }, 500);
   }
 
   render() {
+    const {
+      data: {
+        description,
+        urls,
+        user,
+      },
+    } = this.props;
+    const { show } = this.state;
+
     return (
-      <div className={`photo-popup ${this.state.show ? 'show' : ''}`}>
-        <div className="photo-popup__photo" style={{backgroundImage: `url(${this.props.data.urls.regular})`}} />
+      <div className={`photo-popup ${show ? 'show' : ''}`}>
+        <div className="photo-popup__photo" style={{backgroundImage: `url(${urls.regular})`}} />
         <p className="photo-popup__caption">
-          {this.props.data.description ? <em>“{this.props.data.description}”</em> : ''}
-          {this.props.data.description ? ' — ' : ''}
+          {description ? <em>“{description}”</em> : ''}
+          {description ? ' — ' : ''}
           by&nbsp;
           <a
-            href={this.props.data.user.links.html}
+            href={user.links.html}
             target="_blank"
+            rel="noopener noreferrer"
             className="photo-popup__author-link">
-            {`${this.props.data.user.first_name} ${this.props.data.user.last_name}`}
+            {`${user.first_name || ''} ${user.last_name || ''}`}
           </a>
         </p>
         <button

@@ -14,81 +14,77 @@ class Home extends Component {
     this.state = {
       about: false,
       photos: [],
-      selectedPhoto: ''
+      selectedPhoto: '',
     };
-    this.getPhotos = this.getPhotos.bind(this);
   }
 
   componentDidMount() {
     this.getPhotos();
   }
 
-  getPhotos() {
-    fetch('https://api.unsplash.com/photos?client_id=1e1e4d18ed4c9b69e055fc6cf470b4a38092774e8bbdf4bc0aa812bdb498080e')
+  getPhotos = () => {
+    const apiKey = '1e1e4d18ed4c9b69e055fc6cf470b4a38092774e8bbdf4bc0aa812bdb498080e';
+    const url = `https://api.unsplash.com/photos?client_id=${apiKey}`;
+
+    fetch(url)
       .then(response => response.json())
       .then(data => this.setState({photos: data}));
-  }
+  };
 
   selectPhoto(photo = '') {
     this.setState({
-      selectedPhoto: photo
+      selectedPhoto: photo,
     });
   }
 
   openAbout() {
     this.setState({
-      about: true
+      about: true,
     });
   }
 
   closeAbout() {
     this.setState({
-      about: false
+      about: false,
     });
   }
 
   render() {
-    let photos = '';
-
-    if (this.state.photos) {
-      photos = this.state.photos.map((p, i) =>
-        <Photo
-          data={p}
-          key={p.id}
-          order={i}
-          onSelected={this.selectPhoto.bind(this)}
-        />
-      );
-    }
-
-    let popup = '';
-
-    if (this.state.selectedPhoto) {
-      popup = <PhotoPopup
-        data={this.state.selectedPhoto}
-        closePopup={this.selectPhoto.bind(this)}
-      />;
-    }
-
-    let about = '';
-
-    if (this.state.about) {
-      about = <About closeAbout={this.closeAbout.bind(this)} />;
-    }
+    const {
+      about,
+      photos,
+      selectedPhoto,
+    } = this.state;
 
     return (
       <main>
         <header>
           <nav className="nav">
-            <button type="button" onClick={this.openAbout.bind(this)}>About</button>
+            <button
+              type="button"
+              onClick={this.openAbout.bind(this)}
+            >
+              About
+            </button>
           </nav>
           <DateTime />
         </header>
         <section className="photos">
-          {photos}
+          {photos && photos.map((p, i) =>
+            <Photo
+              data={p}
+              key={p.id}
+              order={i}
+              onSelected={this.selectPhoto.bind(this)}
+            />
+          )}
         </section>
-        {popup}
-        {about}
+        {selectedPhoto &&
+          <PhotoPopup
+            data={selectedPhoto}
+            closePopup={this.selectPhoto.bind(this)}
+          />}
+        {about && <About closeAbout={this.closeAbout.bind(this)} />}
       </main>
     )
   }

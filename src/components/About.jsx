@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import './About.css';
 
-export default class About extends Component {
+export default class About extends PureComponent {
   componentDidMount() {
     this.closeBtn.focus();
   }
 
   closeAbout() {
-    this.props.closeAbout();
+    const { closeAbout } = this.props;
+    closeAbout();
   }
 
   render() {
