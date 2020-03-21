@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import './about.css';
+import './About.css';
 
-export default class About extends React.Component {
+export default class About extends Component {
   componentDidMount() {
     this.closeBtn.focus();
   }

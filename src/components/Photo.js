@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import './photo.css';
+import './Photo.css';
 
-export default class Photo extends React.Component {
+export default class Photo extends Component {
   constructor(props) {
     super(props);
     this.state = {

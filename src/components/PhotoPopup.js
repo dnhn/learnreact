@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import './photo-popup.css';
+import './PhotoPopup.css';
 
-export default class PhotoPopup extends React.Component {
+export default class PhotoPopup extends Component {
   constructor(props) {
     super(props);
     this.state = {

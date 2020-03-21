@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
 
-import About from './about';
-import Photo from './photo';
-import PhotoPopup from './photo-popup';
-import DateTime from './datetime';
+import About from './components/About';
+import Photo from './components/Photo';
+import PhotoPopup from './components/PhotoPopup';
+import DateTime from './components/DateTime';
 
-class Home extends React.Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
