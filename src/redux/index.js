@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { createLogger } from 'redux-logger';
 import app from './reducers';
 
 const defaultState = {
@@ -6,8 +7,13 @@ const defaultState = {
   aboutVisibility: false,
 };
 
+const logger = createLogger({
+  titleFormatter: (action, time, took) =>
+    `${action.type} @ ${time} (${took.toFixed(2)} ms)`,
+});
+
 export default createStore(
   app,
   defaultState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  applyMiddleware(logger),
 );
