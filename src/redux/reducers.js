@@ -4,12 +4,40 @@ import {
   CLEAR_SELECTED_PHOTO,
   OPEN_ABOUT,
   CLOSE_ABOUT,
-  GET_PHOTOS,
+  REQUEST_PHOTOS,
+  REQUEST_PHOTOS_ERROR,
+  SAVE_PHOTOS,
 } from './actions';
 
-const photos = (state = [], { type, photos }) => {
+const photosDefault = {
+  list: [],
+  requesting: false,
+  error: null,
+};
+
+const photos = (state = photosDefault, { type, payload }) => {
   switch (type) {
-    case GET_PHOTOS: return photos;
+    case REQUEST_PHOTOS:
+      return {
+        ...state,
+        list: [],
+        requesting: true,
+        error: null,
+      };
+    case REQUEST_PHOTOS_ERROR:
+      return {
+        ...state,
+        list: [],
+        requesting: false,
+        error: payload.error,
+      };
+    case SAVE_PHOTOS:
+      return {
+        ...state,
+        list: payload.photos,
+        requesting: false,
+        error: false,
+      };
     default: return state;
   }
 };

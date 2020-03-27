@@ -1,0 +1,47 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: white;
+  width: 2vw;
+  height: 2vw;
+  margin: 1vw;
+  animation-name: fade;
+  animation-duration: .75s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.first {
+  animation-delay: .5s;
+}
+
+.second {
+  animation-delay: .75s;
+}
+
+.last {
+  animation-delay: 1s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .dot {
+    width: 2vh;
+    height: 2vh;
+  }
+}

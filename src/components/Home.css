@@ -61,6 +61,10 @@ header {
   body {
     align-items: flex-start;
   }
+
+  .photos {
+    height: 85%;
+  }
 }
 
 @media screen and (min-width: 641px) {

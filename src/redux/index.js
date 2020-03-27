@@ -1,14 +1,19 @@
 import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import app from './reducers';
 
 const defaultState = {
-  photos: [],
+  photos: {
+    list: [],
+    requesting: false,
+    error: null,
+  },
   selectedPhoto: null,
   aboutVisibility: false,
 };
 
-const middlewares = [];
+const middlewares = [thunk];
 
 if (process.env.NODE_ENV !== 'production') {
   middlewares.push(createLogger({

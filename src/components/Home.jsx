@@ -1,6 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { getPhotos, openAbout } from '../redux/actions';
+import {
+  getPhotos,
+  openAbout,
+  requestPhotos,
+} from '../redux/actions';
 
 import './Home.css';
 
@@ -8,22 +12,12 @@ import About from './About';
 import PhotoThumbnail from './PhotoThumbnail';
 import PhotoPopup from './PhotoPopup';
 import DateTime from './DateTime';
+import Loading from './Loading';
 
 class Home extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      photos: [],
-    };
-  }
-
   componentDidMount() {
-    const apiKey = '1e1e4d18ed4c9b69e055fc6cf470b4a38092774e8bbdf4bc0aa812bdb498080e';
-    const url = `https://api.unsplash.com/photos?client_id=${apiKey}`;
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => this.props.getPhotos(data));
+    this.props.requestPhotos();
+    this.props.getPhotos();
   }
 
   render() {
@@ -48,12 +42,11 @@ class Home extends PureComponent {
           <DateTime />
         </header>
         <section className="photos">
-          {photos && photos.map(p =>
-            <PhotoThumbnail
-              data={p}
-              key={p.id}
-            />
-          )}
+          {photos.requesting ?
+            (<Loading />) :
+            photos.error ?
+              photos.error :
+              photos.list.map(p => <PhotoThumbnail data={p} key={p.id} />)}
         </section>
         {selectedPhoto && <PhotoPopup />}
         {aboutVisibility && <About />}
@@ -70,6 +63,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   openAbout: () => dispatch(openAbout()),
+  requestPhotos: () => dispatch(requestPhotos()),
   getPhotos: photos => dispatch(getPhotos(photos)),
 });
 
