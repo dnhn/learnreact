@@ -8,13 +8,17 @@ const defaultState = {
   aboutVisibility: false,
 };
 
-const logger = createLogger({
-  titleFormatter: (action, time, took) =>
-    `${action.type} @ ${time} (${took.toFixed(2)} ms)`,
-});
+const middlewares = [];
+
+if (process.env.NODE_ENV !== 'production') {
+  middlewares.push(createLogger({
+    titleFormatter: (action, time, took) =>
+      `${action.type} @ ${time} (${took.toFixed(2)} ms)`,
+  }));
+}
 
 export default createStore(
   app,
   defaultState,
-  applyMiddleware(logger),
+  applyMiddleware(...middlewares),
 );
