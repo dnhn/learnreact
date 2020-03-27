@@ -3,6 +3,7 @@ import { createLogger } from 'redux-logger';
 import app from './reducers';
 
 const defaultState = {
+  photos: [],
   selectedPhoto: null,
   aboutVisibility: false,
 };

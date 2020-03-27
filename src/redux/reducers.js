@@ -3,8 +3,16 @@ import {
   UPDATE_SELECTED_PHOTO,
   CLEAR_SELECTED_PHOTO,
   OPEN_ABOUT,
-  CLOSE_ABOUT
+  CLOSE_ABOUT,
+  GET_PHOTOS,
 } from './actions';
+
+const photos = (state = [], { type, photos }) => {
+  switch (type) {
+    case GET_PHOTOS: return photos;
+    default: return state;
+  }
+};
 
 const selectedPhoto = (state = null, { type, selectedPhoto }) => {
   switch (type) {
@@ -22,6 +30,10 @@ const aboutVisibility = (state = false, { type }) => {
   }
 };
 
-const rootReducer = combineReducers({ selectedPhoto, aboutVisibility });
+const rootReducer = combineReducers({
+  photos,
+  selectedPhoto,
+  aboutVisibility,
+});
 
 export default rootReducer;

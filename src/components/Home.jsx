@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { openAbout } from '../redux/actions';
+import { getPhotos, openAbout } from '../redux/actions';
 
 import './Home.css';
 
@@ -23,16 +23,16 @@ class Home extends PureComponent {
 
     fetch(url)
       .then(response => response.json())
-      .then(data => this.setState({photos: data}));
+      .then(data => this.props.getPhotos(data));
   }
 
   render() {
     const {
       aboutVisibility,
+      photos,
       selectedPhoto,
       openAbout,
     } = this.props;
-    const { photos } = this.state;
 
     return (
       <main>
@@ -63,12 +63,14 @@ class Home extends PureComponent {
 }
 
 const mapStateToProps = state => ({
+  photos: state.photos,
   selectedPhoto: state.selectedPhoto,
   aboutVisibility: state.aboutVisibility,
 });
 
 const mapDispatchToProps = dispatch => ({
   openAbout: () => dispatch(openAbout()),
+  getPhotos: photos => dispatch(getPhotos(photos)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
