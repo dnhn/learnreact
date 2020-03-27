@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { openPhoto } from '../redux/actions';
 
-import './Photo.css';
+import './PhotoThumbnail.css';
 
-export default class Photo extends PureComponent {
+class PhotoThumbnail extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,30 +13,23 @@ export default class Photo extends PureComponent {
   }
 
   componentDidMount() {
-    const { order } = this.props;
-
     setTimeout(() => {
       this.setState({
         show: true,
       });
-    }, order * 150);
+    }, this.props.order * 150);
   }
-
-  openPhoto = (e) => {
-    e.preventDefault();
-
-    const { data, onSelected } = this.props;
-    onSelected(data);
-  };
 
   render() {
     const {
-      data: {
-        links,
-        urls,
-        description,
-      },
+      data: photoData,
+      openPhoto,
     } = this.props;
+    const {
+      links,
+      urls,
+      description,
+    } = photoData;
     const { show } = this.state;
 
     return (
@@ -43,10 +38,16 @@ export default class Photo extends PureComponent {
         target="_blank"
         rel="noopener noreferrer"
         className={`photo ${show ? 'show' : ''}`}
-        onClick={e => this.openPhoto(e)}
+        onClick={e => { e.preventDefault(); openPhoto(photoData) }}
         style={{backgroundImage: `url(${urls.small})`}}>
         {description ? <span className="photo__desc">{description}</span> : ''}
       </a>
-    )
+    );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  openPhoto: selectedPhoto => dispatch(openPhoto(selectedPhoto)),
+});
+
+export default connect(null, mapDispatchToProps)(PhotoThumbnail);

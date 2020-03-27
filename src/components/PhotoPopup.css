@@ -44,10 +44,18 @@
 
 .photo-popup__close {
   position: fixed;
-  top: 2%;
-  left: 2%;
+  top: 24px;
+  left: 24px;
   padding: 2%;
   background-color: white;
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 black;
+}
+
+@media screen and (max-width: 640px) {
+  .photo-popup__close {
+    opacity: .75;
+  }
 }
 
 @media screen and (min-width: 641px) {
@@ -56,8 +64,8 @@
   }
 
   .photo-popup__close {
-    top: 1%;
-    left: 1%;
+    top: 16px;
+    left: 16px;
     padding: 1%;
   }
 }

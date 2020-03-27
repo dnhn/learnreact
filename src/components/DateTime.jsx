@@ -8,9 +8,7 @@ export default class DateTime extends PureComponent {
     };
   }
 
-  componentDidMount() {
-    this.tick();
-  }
+  componentDidMount = () => this.tick();
 
   newDateTime = () => `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
 
@@ -22,13 +20,5 @@ export default class DateTime extends PureComponent {
     }, 1000);
   };
 
-  render() {
-    const { dateTime } = this.state;
-
-    return (
-      <div style={{padding: '1% 0'}}>
-        {dateTime}
-      </div>
-    );
-  }
+  render = () => <div style={{padding: '1% 0'}}>{this.state.dateTime}</div>;
 }
