@@ -1,9 +1,8 @@
-import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import app from './reducers';
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducers from './reducers';
+import middleware from './middlewares';
 
-const defaultState = {
+const preloadedState = {
   photos: {
     list: [],
     requesting: false,
@@ -13,17 +12,9 @@ const defaultState = {
   aboutVisibility: false,
 };
 
-const middlewares = [thunk];
-
-if (process.env.NODE_ENV !== 'production') {
-  middlewares.push(createLogger({
-    titleFormatter: (action, time, took) =>
-      `${action.type} @ ${time} (${took.toFixed(2)} ms)`,
-  }));
-}
-
-export default createStore(
-  app,
-  defaultState,
-  applyMiddleware(...middlewares),
-);
+export default configureStore({
+  reducer: rootReducers,
+  preloadedState,
+  middleware,
+  devTools: false,
+});
