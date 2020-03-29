@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="padding: 1% 0px;"
+  >
+    3/29/2020 7:50:23 PM
+  </div>
+</DocumentFragment>
+`;
