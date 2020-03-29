@@ -13,19 +13,19 @@
   transition-duration: 1s;
   transition-timing-function: ease;
   box-shadow: 0 0 80px 0 inset black;
-}
 
-.photo:hover {
-  box-shadow: none;
-}
+  &:hover {
+    box-shadow: none;
+  }
 
-.photo:focus {
-  z-index: 1;
-}
+  &:focus {
+    z-index: 1;
+  }
 
-.photo.show {
-  opacity: 1;
-  visibility: visible;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .photo__desc {

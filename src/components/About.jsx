@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { closeAbout } from '../redux/actions';
 
-import './About.css';
+import './About.scss';
 
 class About extends PureComponent {
   closeAbout = e => e.target === this.thisAbout && this.props.closeAbout();

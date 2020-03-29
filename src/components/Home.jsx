@@ -6,7 +6,7 @@ import {
   requestPhotos,
 } from '../redux/actions';
 
-import './Home.css';
+import './Home.scss';
 
 import About from './About';
 import PhotoThumbnail from './PhotoThumbnail';

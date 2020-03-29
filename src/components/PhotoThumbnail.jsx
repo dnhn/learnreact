@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { openPhoto } from '../redux/actions';
 
-import './PhotoThumbnail.css';
+import './PhotoThumbnail.scss';
 
 class PhotoThumbnail extends PureComponent {
   constructor(props) {

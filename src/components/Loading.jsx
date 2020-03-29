@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Loading.css';
+import './Loading.scss';
 
 export default () =>
   <div className="loading">

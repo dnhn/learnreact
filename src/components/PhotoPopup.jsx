@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { closePhoto } from '../redux/actions';
 
-import './PhotoPopup.css';
+import './PhotoPopup.scss';
 
 class PhotoPopup extends Component {
   constructor(props) {
