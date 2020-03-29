@@ -16,6 +16,7 @@
   animation-fill-mode: both;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  box-shadow: 0 2px 2px black;
 }
 
 .first {
