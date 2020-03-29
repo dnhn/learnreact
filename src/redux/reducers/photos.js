@@ -20,7 +20,7 @@ export default (state = photosDefault, { type, payload }) => {
         ...state,
         list: [],
         requesting: false,
-        error: payload.error,
+        error: true,
       };
     case actionTypes.SAVE_PHOTOS:
       return {

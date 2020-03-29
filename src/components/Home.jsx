@@ -43,9 +43,9 @@ class Home extends PureComponent {
         </header>
         <section className="photos">
           {photos.requesting ?
-            (<Loading />) :
+            <Loading /> :
             photos.error ?
-              photos.error :
+              <Loading error /> :
               photos.list.map(p => <PhotoThumbnail data={p} key={p.id} />)}
         </section>
         {selectedPhoto && <PhotoPopup />}

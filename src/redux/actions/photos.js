@@ -1,12 +1,11 @@
-import { API_URL, actionTypes } from '../../commons/constants';
+import { actionTypes, apis } from '../../commons/constants';
 
 export const requestPhotos = () => ({
   type: actionTypes.REQUEST_PHOTOS,
 });
 
-const requestPhotosError = error => ({
+const requestPhotosError = () => ({
   type: actionTypes.REQUEST_PHOTOS_ERROR,
-  payload: { error },
 });
 
 const savePhotos = photos => ({
@@ -15,10 +14,8 @@ const savePhotos = photos => ({
 });
 
 export function getPhotos() {
-  return dispatch => fetch(API_URL)
-    .then(res => res.json())
-    .then(data => data.errors && data.errors.length ?
-      dispatch(requestPhotosError(data.errors)) :
-      dispatch(savePhotos(data))
-    );
+  return async dispatch => {
+    const response = await fetch(apis.PHOTOS).then(res => res.json());
+    dispatch(response.error ? requestPhotosError() : savePhotos(response));
+  };
 }

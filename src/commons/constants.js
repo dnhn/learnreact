@@ -1,5 +1,8 @@
-const API_KEY = '1e1e4d18ed4c9b69e055fc6cf470b4a38092774e8bbdf4bc0aa812bdb498080e';
-export const API_URL = `https://api.unsplash.com/photos?client_id=${API_KEY}`;
+const API_ROOT = '/.netlify/functions';
+
+export const apis = {
+  PHOTOS: `${API_ROOT}/photos`,
+};
 
 export const actionTypes = {
   UPDATE_SELECTED_PHOTO: 'UPDATE_SELECTED_PHOTO',

@@ -17,6 +17,12 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   box-shadow: 0 2px 2px black;
+
+  .error & {
+    background-color: deeppink;
+    animation-duration: 1.5s;
+    animation-delay: 0s !important;
+  }
 }
 
 .first {
