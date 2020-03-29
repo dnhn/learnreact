@@ -1,5 +1,15 @@
 {
+  "env": {
+    "browser": true,
+    "es6": true
+  },
   "extends": ["react-app"],
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
   "rules": {
     "arrow-body-style": ["error", "as-needed"],
     "arrow-parens": ["error", "as-needed"],
@@ -24,8 +34,24 @@
     "no-var": "error",
     "prefer-template": "error",
     "quote-props": ["error", "as-needed"],
+    "quotes": ["error", "single"],
     "rest-spread-spacing": ["error", "never"],
     "space-in-parens": ["error", "never"],
-    "template-curly-spacing": "error"
+    "template-curly-spacing": "error",
+    "react/button-has-type": "error",
+    "react/jsx-boolean-value": "error",
+    "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-curly-brace-presence": "error",
+    "react/jsx-curly-spacing": "error",
+    "react/jsx-equals-spacing": ["error", "never"],
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx"] }],
+    "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+    "react/jsx-indent-props": ["error", 2],
+    "react/jsx-props-no-multi-spaces": "error",
+    "react/jsx-tag-spacing": [2, { "beforeClosing": "never" }],
+    "react/no-unused-state": "error",
+    "react/require-render-return": "error",
+    "react/self-closing-comp": "error"
   }
 }
