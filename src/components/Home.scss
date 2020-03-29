@@ -33,11 +33,18 @@ main {
 }
 
 .nav button {
+  cursor: pointer;
   border: 0;
   height: 100%;
   background-color: #666;
   color: white;
   font-weight: bold;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #333;
+  }
 }
 
 header {

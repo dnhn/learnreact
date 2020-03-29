@@ -4,6 +4,8 @@ import { closeAbout } from '../redux/actions';
 
 import './About.scss';
 
+import netlifyLogo from '../static/images/netlify-dark.svg';
+
 class About extends PureComponent {
   closeAbout = e => e.target === this.thisAbout && this.props.closeAbout();
 
@@ -21,12 +23,17 @@ class About extends PureComponent {
         <p>
           Source code at <a href="https://github.com/nhantdn/learnreact" target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
+        <p>
+          <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
+            <img src={netlifyLogo} alt="Deploys by Netlify" />
+          </a>
+        </p>
         <button
           type="button"
           className="about__close"
           onClick={this.props.closeAbout}
         >
-          OK
+          Close
         </button>
       </div>
     </div>
