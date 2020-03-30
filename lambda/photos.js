@@ -1,4 +1,4 @@
-const AWS = require('aws-sdk');
+const DDB = require('aws-sdk/clients/dynamodb');
 const fetch = require('node-fetch');
 const {
   USER_AWS_REGION,
@@ -9,7 +9,7 @@ const {
   USER_FETCH_TIMEOUT,
   USER_TABLE_NAME,
 } = process.env;
-const dynamo = new AWS.DynamoDB.DocumentClient({
+const dynamo = new DDB.DocumentClient({
   region: USER_AWS_REGION,
   accessKeyId: USER_AWS_ACCESS_KEY,
   secretAccessKey: USER_AWS_SECRET_KEY,
