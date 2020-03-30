@@ -16,6 +16,6 @@ const savePhotos = photos => ({
 export function getPhotos() {
   return async dispatch => {
     const response = await fetch(apis.PHOTOS).then(res => res.json());
-    dispatch(response.error ? requestPhotosError() : savePhotos(response));
+    dispatch(!!response.errorMessage ? requestPhotosError() : savePhotos(response));
   };
 }
