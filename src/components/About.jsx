@@ -4,8 +4,6 @@ import { closeAbout } from '../redux/actions';
 
 import './About.scss';
 
-import netlifyLogo from '../static/images/netlify-dark.svg';
-
 class About extends PureComponent {
   closeAbout = e => e.target === this.thisAbout && this.props.closeAbout();
 
@@ -25,7 +23,7 @@ class About extends PureComponent {
         </p>
         <p>
           <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
-            <img src={netlifyLogo} alt="Deploys by Netlify" />
+            <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
           </a>
         </p>
         <button
