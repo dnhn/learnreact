@@ -19,9 +19,6 @@ class About extends PureComponent {
           <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React.js</a> practise by <a href="https://github.com/nhantdn" target="_blank" rel="noopener noreferrer">Nhan</a>
         </p>
         <p>
-          Source code at <a href="https://github.com/nhantdn/learnreact" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </p>
-        <p>
           <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
             <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
           </a>
