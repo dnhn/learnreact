@@ -12,6 +12,6 @@ export default ({ toggle }) => (
     rel="noopener noreferrer"
     className="logo"
   >
-    <img src={toggle ? mark : markLight} alt="" />
+    <img src={toggle ? mark : markLight} alt="Hosted by GitHub" />
   </a>
 );

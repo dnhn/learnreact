@@ -3,7 +3,7 @@
   position: absolute;
   overflow: hidden;
   right: 0;
-  top: 5%;
+  top: 40px;
   line-height: 0;
 
   &:hover {
@@ -20,7 +20,7 @@
   }
 
   @media screen and (max-width: 640px) {
-    top: 6%;
+    position: fixed;
 
     img {
       transform: rotate(-135deg) translateY(5px);
