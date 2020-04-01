@@ -1,6 +1,7 @@
 .logo {
   z-index: 1;
   position: absolute;
+  overflow: hidden;
   right: 0;
   top: 5%;
   line-height: 0;
@@ -16,5 +17,13 @@
     height: 48px;
     transform: rotate(-135deg) translateY(25px);
     transition: transform .25s ease-in-out;
+  }
+
+  @media screen and (max-width: 640px) {
+    top: 6%;
+
+    img {
+      transform: rotate(-135deg) translateY(5px);
+    }
   }
 }
