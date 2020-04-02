@@ -1,10 +1,19 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, createRef } from 'react';
 import { connect } from 'react-redux';
 import { closeAbout } from '../redux/actions';
 
 import './About.scss';
 
 class About extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.closeAboutBtn = createRef();
+  }
+
+  componentDidMount() {
+    this.closeAboutBtn.current.focus();
+  }
+
   closeAbout = e => e.target === this.thisAbout && this.props.closeAbout();
 
   render = () => (
@@ -24,6 +33,7 @@ class About extends PureComponent {
           </a>
         </p>
         <button
+          ref={this.closeAboutBtn}
           type="button"
           className="about__close"
           onClick={this.props.closeAbout}
