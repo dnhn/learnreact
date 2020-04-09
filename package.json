@@ -27,7 +27,7 @@
     "build:preview": "npm run build && netlify deploy",
     "analyse": "source-map-explorer 'build/static/js/*.js'",
     "test": "react-scripts test",
-    "test:cover": "npm test -- --coverage"
+    "test:cover": "npm test -- --coverage --watchAll=false"
   },
   "browserslist": {
     "production": [
