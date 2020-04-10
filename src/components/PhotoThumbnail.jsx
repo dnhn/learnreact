@@ -4,7 +4,9 @@ import { openPhoto } from '../redux/actions';
 
 import './PhotoThumbnail.scss';
 
-class PhotoThumbnail extends PureComponent {
+export class PhotoThumbnail extends PureComponent {
+  _timeOut = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,11 +15,15 @@ class PhotoThumbnail extends PureComponent {
   }
 
   componentDidMount() {
-    setTimeout(() => {
+    this._timeOut = setTimeout(() => {
       this.setState({
         show: true,
       });
     }, this.props.order * 150);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._timeOut);
   }
 
   render() {
