@@ -11,7 +11,6 @@ import './Home.scss';
 import About from './About';
 import PhotoThumbnail from './PhotoThumbnail';
 import PhotoPopup from './PhotoPopup';
-import DateTime from './DateTime';
 import Loading from './Loading';
 import GitHubMark from './GitHubMark';
 
@@ -40,7 +39,6 @@ class Home extends PureComponent {
               About
             </button>
           </nav>
-          <DateTime />
         </header>
         <GitHubMark />
         <section className="photos">
