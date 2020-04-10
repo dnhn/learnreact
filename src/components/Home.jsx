@@ -14,7 +14,7 @@ import PhotoPopup from './PhotoPopup';
 import Loading from './Loading';
 import GitHubMark from './GitHubMark';
 
-class Home extends PureComponent {
+export class Home extends PureComponent {
   componentDidMount() {
     this.props.requestPhotos();
     this.props.getPhotos();

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> renders correctly 1`] = `
+<DocumentFragment>
+  <main>
+    <header>
+      <nav
+        class="nav"
+      >
+        <button
+          type="button"
+        >
+          About
+        </button>
+      </nav>
+    </header>
+    <a
+      class="logo"
+      href="https://github.com/nhantdn/learnreact"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Hosted by GitHub"
+        src="github-mark-light.svg"
+      />
+    </a>
+    <section
+      class="photos"
+    />
+  </main>
+</DocumentFragment>
+`;
