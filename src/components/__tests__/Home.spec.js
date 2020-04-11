@@ -53,7 +53,7 @@ describe('<Home />', () => {
       .toBe(true);
   });
 
-  it('opens about popup', async () => {
+  it('opens about popup', () => {
     const { container, getByText } = render(<Home {...mockStore} />);
     fireEvent.click(getByText('About'));
     waitForDomChange(container).then(

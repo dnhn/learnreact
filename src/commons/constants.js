@@ -1,7 +1,16 @@
+import { isProduction } from './utils';
+
+const {
+  REACT_APP_USER_API_URL,
+  REACT_APP_USER_API_KEY,
+} = process.env;
+
 const API_ROOT = '/.netlify/functions';
 
 export const apis = {
-  PHOTOS: `${API_ROOT}/photos`,
+  PHOTOS: isProduction ?
+    `${API_ROOT}/photos` :
+    `${REACT_APP_USER_API_URL}${REACT_APP_USER_API_KEY}`,
 };
 
 export const actionTypes = {
