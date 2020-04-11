@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhotoPopup /> renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="photo-popup "
+  >
+    <div
+      class="photo-popup__photo"
+      style="background-image: url(#background);"
+    />
+    <p
+      class="photo-popup__caption"
+    >
+      <em>
+        “description”
+      </em>
+       — by 
+      <a
+        class="photo-popup__author-link"
+        href="#link"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        First Last
+      </a>
+    </p>
+    <button
+      class="photo-popup__close"
+      type="button"
+    >
+      Close
+    </button>
+  </div>
+</DocumentFragment>
+`;

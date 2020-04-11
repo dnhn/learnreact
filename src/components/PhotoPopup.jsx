@@ -4,7 +4,9 @@ import { closePhoto } from '../redux/actions';
 
 import './PhotoPopup.scss';
 
-class PhotoPopup extends Component {
+export class PhotoPopup extends Component {
+  _timeOut = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,12 +15,16 @@ class PhotoPopup extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
+    this._timeOut = setTimeout(() => {
       this.setState({
         show: true,
       });
       this.closeBtn.focus();
     }, 0);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._timeOut);
   }
 
   render() {
