@@ -4,7 +4,7 @@ import { closeAbout } from '../redux/actions';
 
 import './About.scss';
 
-class About extends PureComponent {
+export class About extends PureComponent {
   constructor(props) {
     super(props);
     this.closeAboutBtn = createRef();
@@ -45,12 +45,8 @@ class About extends PureComponent {
   );
 }
 
-const mapStateToProps = state => ({
-  aboutVisibility: state.aboutVisibility,
-});
-
 const mapDispatchToProps = dispatch => ({
   closeAbout: () => dispatch(closeAbout()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(About);
+export default connect(null, mapDispatchToProps)(About);
