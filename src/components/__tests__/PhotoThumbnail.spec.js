@@ -5,6 +5,10 @@ import { PhotoThumbnail } from '../PhotoThumbnail';
 
 let mockStore = {};
 
+beforeAll(() => {
+  jest.useFakeTimers();
+});
+
 beforeEach(() => {
   mockStore = {
     data: {
@@ -13,7 +17,12 @@ beforeEach(() => {
       description: 'description',
     },
     openPhoto: jest.fn(),
+    order: 5,
   };
+});
+
+afterAll(() => {
+  jest.useRealTimers();
 });
 
 describe('<PhotoThumbnail />', () => {

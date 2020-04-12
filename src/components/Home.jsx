@@ -46,7 +46,14 @@ export class Home extends PureComponent {
             <Loading /> :
             photos.error ?
               <Loading error /> :
-              photos.list.map(p => <PhotoThumbnail data={p} key={p.id} />)}
+              photos.list.map(
+                (p, idx) =>
+                  <PhotoThumbnail
+                    key={p.id}
+                    data={p}
+                    order={idx}
+                  />
+              )}
         </section>
         {selectedPhoto && <PhotoPopup />}
         {aboutVisibility && <About />}
