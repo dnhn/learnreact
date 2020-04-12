@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<GitHubMark /> renders correctly 1`] = `
+exports[`<GitHubMark /> renders without crashing 1`] = `
 <div>
   <a
     class="logo"

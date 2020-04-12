@@ -19,7 +19,7 @@ beforeEach(() => {
 });
 
 describe('<Home />', () => {
-  it('renders correctly', () => {
+  it('renders without crashing', () => {
     const { asFragment } = render(<Home {...mockStore} />);
     expect(asFragment()).toMatchSnapshot();
   });

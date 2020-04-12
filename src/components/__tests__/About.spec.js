@@ -8,7 +8,7 @@ const mockStore = {
 }
 
 describe('<About />', () => {
-  it('renders correctly', () => {
+  it('renders without crashing', () => {
     const { asFragment } = render(<About />);
     expect(asFragment()).toMatchSnapshot();
   });

@@ -17,7 +17,7 @@ const mockStore = {
 };
 
 describe('<PhotoPopup />', () => {
-  it('renders correctly', () => {
+  it('renders without crashing', () => {
     const { asFragment } = render(<PhotoPopup {...mockStore} />);
     expect(asFragment()).toMatchSnapshot();
   });

@@ -6,7 +6,7 @@ import GitHubMark from '../GitHubMark';
 const rootUrl = 'http://localhost/';
 
 describe('<GitHubMark />', () => {
-  it('renders correctly', () => {
+  it('renders without crashing', () => {
     const { container } = render(<GitHubMark />);
     expect(container).toMatchSnapshot();
     expect(container.getElementsByTagName('img')[0].src)

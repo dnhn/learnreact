@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import Loading from '../Loading';
 
 describe('<Loading />', () => {
-  it('renders correctly', () => {
+  it('renders without crashing', () => {
     const { asFragment } = render(<Loading />);
     expect(asFragment()).toMatchSnapshot();
   });

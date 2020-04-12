@@ -17,7 +17,7 @@ beforeEach(() => {
 });
 
 describe('<PhotoThumbnail />', () => {
-  it('renders correctly', () => {
+  it('renders without crashing', () => {
     const { asFragment } = render(<PhotoThumbnail {...mockStore} />);
     expect(asFragment()).toMatchSnapshot();
   });
