@@ -1,4 +1,4 @@
-import { getDefaultMiddleware } from "@reduxjs/toolkit";
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from './logger';
 import { isNotProduction } from '../../commons/utils';
 
