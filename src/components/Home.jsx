@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
   getPhotos,
@@ -14,52 +14,51 @@ import PhotoPopup from './PhotoPopup';
 import Loading from './Loading';
 import GitHubMark from './GitHubMark';
 
-export class Home extends PureComponent {
-  componentDidMount() {
-    this.props.requestPhotos();
-    this.props.getPhotos();
-  }
+export const Home =
+  ({
+    aboutVisibility,
+    photos,
+    selectedPhoto,
+    openAbout,
+    requestPhotos,
+    getPhotos,
+  }) => {
+  useEffect(() => {
+    requestPhotos();
+    getPhotos();
+  }, []);
 
-  render() {
-    const {
-      aboutVisibility,
-      photos,
-      selectedPhoto,
-      openAbout,
-    } = this.props;
-
-    return (
-      <main>
-        <header>
-          <nav className="nav">
-            <button
-              type="button"
-              onClick={openAbout}
-            >
-              About
-            </button>
-          </nav>
-        </header>
-        <GitHubMark />
-        <section className="photos">
-          {photos.requesting ?
-            <Loading /> :
-            photos.error ?
-              <Loading error /> :
-              photos.list.map(
-                (p, idx) =>
-                  <PhotoThumbnail
-                    key={p.id}
-                    data={p}
-                    order={idx}
-                  />
-              )}
-        </section>
-        {selectedPhoto && <PhotoPopup />}
-        {aboutVisibility && <About />}
-      </main>
-    );
-  }
+  return (
+    <main>
+      <header>
+        <nav className="nav">
+          <button
+            type="button"
+            onClick={openAbout}
+          >
+            About
+          </button>
+        </nav>
+      </header>
+      <GitHubMark />
+      <section className="photos">
+        {photos.requesting ?
+          <Loading /> :
+          photos.error ?
+            <Loading error /> :
+            photos.list.map(
+              (p, idx) =>
+                <PhotoThumbnail
+                  key={p.id}
+                  data={p}
+                  order={idx}
+                />
+            )}
+      </section>
+      {selectedPhoto && <PhotoPopup />}
+      {aboutVisibility && <About />}
+    </main>
+  );
 }
 
 const mapStateToProps = state => ({
@@ -71,7 +70,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   openAbout: () => dispatch(openAbout()),
   requestPhotos: () => dispatch(requestPhotos()),
-  getPhotos: photos => dispatch(getPhotos(photos)),
+  getPhotos: () => dispatch(getPhotos()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
