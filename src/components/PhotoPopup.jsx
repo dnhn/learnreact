@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { closePhoto } from '../redux/actions';
 
@@ -14,7 +14,7 @@ export const PhotoPopup =
      closePhoto
   }) => {
   const [show, setShow] = useState(false);
-  const closeBtn = createRef();
+  const closeBtn = useRef();
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
