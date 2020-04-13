@@ -3,18 +3,30 @@ import { fireEvent, render } from "@testing-library/react";
 
 import { PhotoPopup } from '../PhotoPopup';
 
-const mockStore = {
-  selectedPhoto: {
-    description: 'description',
-    urls: { regular: '#background' },
-    user: {
-      links: { html: '#link' },
-      first_name: 'First',
-      last_name: 'Last',
+let mockStore;
+
+beforeAll(() => {
+  jest.useFakeTimers();
+});
+
+beforeEach(() => {
+  mockStore = {
+    selectedPhoto: {
+      description: 'description',
+      urls: { regular: '#background' },
+      user: {
+        links: { html: '#link' },
+        first_name: 'First',
+        last_name: 'Last',
+      },
     },
-  },
-  closePhoto: jest.fn(),
-};
+    closePhoto: jest.fn(),
+  };
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 describe('<PhotoPopup />', () => {
   it('renders without crashing', () => {
