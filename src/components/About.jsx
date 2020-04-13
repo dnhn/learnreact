@@ -1,26 +1,24 @@
-import React, { PureComponent, createRef } from 'react';
+import React, { createRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { closeAbout } from '../redux/actions';
 
 import './About.scss';
 
-export class About extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.closeAboutBtn = createRef();
-  }
+export const About = ({ closeAbout }) => {
+  const thisAbout = createRef();
+  const closeAboutBtn = createRef();
 
-  componentDidMount() {
-    this.closeAboutBtn.current.focus();
-  }
+  useEffect(() => {
+    closeAboutBtn.current.focus();
+  });
 
-  closeAbout = e => e.target === this.thisAbout && this.props.closeAbout();
+  const close = e => e.target === thisAbout.current && closeAbout();
 
-  render = () => (
+  return (
     <div
-      ref={ref => this.thisAbout = ref}
+      ref={thisAbout}
       className="about"
-      onClick={e => this.closeAbout(e)}
+      onClick={e => close(e)}
     >
       <div className="about__popup">
         <h1>React Photo Grid</h1>
@@ -33,10 +31,10 @@ export class About extends PureComponent {
           </a>
         </p>
         <button
-          ref={this.closeAboutBtn}
+          ref={closeAboutBtn}
           type="button"
           className="about__close"
-          onClick={this.props.closeAbout}
+          onClick={closeAbout}
         >
           Close
         </button>
