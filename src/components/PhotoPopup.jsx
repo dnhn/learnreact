@@ -23,7 +23,7 @@ export const PhotoPopup =
     }, 0);
 
     return () => clearTimeout(timeOut);
-  });
+  }, []);
 
   return (
     <div className={`photo-popup ${show ? 'show' : ''}`}>

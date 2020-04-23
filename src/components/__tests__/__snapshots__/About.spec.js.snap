@@ -21,7 +21,7 @@ exports[`<About /> renders without crashing 1`] = `
         </a>
          practise by 
         <a
-          href="https://github.com/nhantdn"
+          href="https://github.com/dnhn/learnreact"
           rel="noopener noreferrer"
           target="_blank"
         >

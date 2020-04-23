@@ -16,7 +16,7 @@ exports[`<Home /> renders without crashing 1`] = `
     </header>
     <a
       class="logo"
-      href="https://github.com/nhantdn/learnreact"
+      href="https://github.com/dnhn/learnreact"
       rel="noopener noreferrer"
       target="_blank"
     >

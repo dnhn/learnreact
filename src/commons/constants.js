@@ -13,6 +13,8 @@ export const apis = {
     `${REACT_APP_USER_API_URL}${REACT_APP_USER_API_KEY}`,
 };
 
+export const repoUrl = 'https://github.com/dnhn/learnreact';
+
 export const actionTypes = {
   UPDATE_SELECTED_PHOTO: 'UPDATE_SELECTED_PHOTO',
   CLEAR_SELECTED_PHOTO: 'CLEAR_SELECTED_PHOTO',

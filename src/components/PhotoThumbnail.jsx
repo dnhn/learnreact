@@ -10,11 +10,11 @@ export const PhotoThumbnail = ({ data: photoData, openPhoto, order }) => {
   useEffect(() => {
     const timeOut = setTimeout(
       () => setShow(true),
-      order * 150
+      order * 150,
     );
 
     return () => clearTimeout(timeOut);
-  });
+  }, []);
 
   const {
     links,

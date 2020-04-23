@@ -1,6 +1,7 @@
 import React, { createRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { closeAbout } from '../redux/actions';
+import { repoUrl } from '../commons/constants';
 
 import './About.scss';
 
@@ -10,7 +11,7 @@ export const About = ({ closeAbout }) => {
 
   useEffect(() => {
     closeAboutBtn.current.focus();
-  });
+  }, []);
 
   const close = e => e.target === thisAbout.current && closeAbout();
 
@@ -23,7 +24,15 @@ export const About = ({ closeAbout }) => {
       <div className="about__popup">
         <h1>React Photo Grid</h1>
         <p>
-          <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React.js</a> practise by <a href="https://github.com/nhantdn" target="_blank" rel="noopener noreferrer">Nhan</a>
+          <a
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >React.js</a> practise by <a
+          href={repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >Nhan</a>
         </p>
         <p>
           <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
